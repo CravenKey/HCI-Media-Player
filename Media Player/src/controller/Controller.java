@@ -26,6 +26,8 @@ public class Controller
 	{
 		return e -> {
 			System.out.println("Action Performed: Click Record");
+			
+			
 	
 			double x = e.getSceneX(); 
 			double y = e.getSceneY(); 

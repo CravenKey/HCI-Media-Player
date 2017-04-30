@@ -85,9 +85,7 @@ public class View implements Listener{
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-
-		
+        }	
 	}
 	
 	private void PerformFittsTest( final Controller controller, Stage primaryStage) { 
@@ -101,6 +99,8 @@ public class View implements Listener{
 
 	@Override
 	public void clickRecorded() {
+		
+		
 	
 	}
 	
