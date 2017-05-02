@@ -1,29 +1,22 @@
 package application;
-	
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-
+import javafx.stage.Stage;
 
 public class Main extends Application {
 	@Override
     public void start(Stage primaryStage) {
         try {
-            BorderPane page = (BorderPane) FXMLLoader.load(Main.class.getResource("Scene.fxml"));
-            //Controller cont = new Controller(primaryStage);
-            Scene scene = new Scene(page);
+        	Parent root = FXMLLoader.load(getClass().getResource("/view/Media.fxml"));
+			Scene scene = new Scene(root);	
             primaryStage.setScene(scene);
             primaryStage.setTitle("My Media");
             primaryStage.show();
         } catch (Exception ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        	System.out.println("Failed to load main Media fxml");
         }
     }
 	
