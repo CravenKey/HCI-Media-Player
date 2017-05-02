@@ -35,19 +35,7 @@ public class Model{
 	public void readMediaToBuff(File path){
 		
 		filesInDirr = path.listFiles();					//Get files listed
-		numFiles = filesInDirr.length;
-		
-		//mediaFiles = new Media[numFiles];
-		
-//		for(int i = 0; i < numFiles; i++){
-//			//TODO Do something here to read in media and buffer them
-//			mediaFiles[i] = new Media(filesInDirr[i].getPath());
-//		}
-//		
-//		isImported = true;
-//		setCurrentMedia(mediaFiles[0]);
-//		this.notifyListeners();
-		
+		numFiles = filesInDirr.length;	
 	}
 	
 	public void setCurrentMedia(Media mediaFile){
