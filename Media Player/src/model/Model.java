@@ -79,6 +79,7 @@ public class Model
 	public void setDir(final File dir)
 	{
 		// 
+		this.files = new File[0];
 		File[] directoryFiles = dir.listFiles();
 		// Clears the validFiles vector
 		Vector<File> validFiles = new Vector<File>();

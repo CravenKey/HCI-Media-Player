@@ -2,9 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -19,26 +21,28 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#openDirectory" text="Open Media Folder" />
-              <MenuItem mnemonicParsing="false" text="Exit" />
+              <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Control">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Play" />
-              <MenuItem mnemonicParsing="false" text="Delete" />
-                  <MenuItem mnemonicParsing="false" text="Fast Forward" />
-                  <MenuItem mnemonicParsing="false" text="Rewind" />
+                  <MenuItem mnemonicParsing="false" onAction="#slow" text="Slow" />
+              <MenuItem mnemonicParsing="false" onAction="#play" text="Play" />
+                  <MenuItem mnemonicParsing="false" onAction="#pause" text="Pause" />
+                  <MenuItem mnemonicParsing="false" onAction="#stop" text="Stop" />
+                  <MenuItem mnemonicParsing="false" onAction="#fastForward" text="Fast Forward" />
+                  <RadioMenuItem fx:id="repeatMenuOpt" mnemonicParsing="false" onAction="#repeat" text="Repeat" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Playlist">
               <items>
-                <MenuItem mnemonicParsing="false" text="Open" />
-                  <MenuItem mnemonicParsing="false" text="Close" />
+                <MenuItem mnemonicParsing="false" onAction="#showPlayList" text="Open" />
+                  <MenuItem mnemonicParsing="false" onAction="#hidePlayList" text="Close" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="aboutButton" mnemonicParsing="false" text="About" />
             </items>
           </Menu>
         </menus>
@@ -71,4 +75,7 @@
          </children>
       </GridPane>
    </bottom>
+   <left>
+      <ListView fx:id="playlistList" onEditStart="#listSelection" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
 </BorderPane>
