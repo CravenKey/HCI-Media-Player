@@ -28,7 +28,11 @@ public class Model
 	}
 	
 	
-	
+	/**
+	 * Updates the index value of the Model, while also loading the media if it has not already been loaded
+	 * 
+	 * @param index The location the new Media should be at in the arrays
+	 */
 	public void setMedia(int index)
 	{
 		//don't do anything if a directory with usable files hasn't been selected
@@ -49,9 +53,9 @@ public class Model
 		//if the file hasn't been read do so
 		if( mediaCache[index] == null ) {
 			try {
-				
-				Media m = new Media(files[index].getAbsolutePath());
-				mediaCache[index] = m;
+					String path = files[index].getAbsolutePath();
+					Media m = new Media(new File(path).toURI().toString());
+					mediaCache[index] = m;
 			}
 			catch( final Exception ioe ) {
 				System.err.println( "There was an error reading " + files[index] );
@@ -92,7 +96,8 @@ public class Model
 		
 		this.files = validFiles.toArray(new File[validFiles.size()]);
 		this.mediaCache = new Media[ validFiles.size() ];
-	
+	System.out.println(validFiles.toString());
+		
 		setMedia(0);
 	}
 	

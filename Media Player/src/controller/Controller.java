@@ -8,40 +8,21 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import model.Model;
+import view.MediaController;
 
 public class Controller 
 
 {
 	private final Model model;
-	private final Stage stage;
+	private MediaController mCont;
 		
-	public Controller( final Model model, Stage stage ) 
+	public Controller( final Model model, MediaController mCont) 
 	{
 		
-	this.stage = stage;	
+		
 	this.model = model;
 		
 	}
-	public EventHandler<MouseEvent> getTargetClickHandler(final Model model, final Node target)
-	{
-		return e -> {
-			System.out.println("Action Performed: Click Record");
-			
-			
 	
-			double x = e.getSceneX(); 
-			double y = e.getSceneY(); 
-		};
-	}
-	public EventHandler<ActionEvent> getStartTestHandler(
-
-		final Spinner<Integer> clickCounter, 
-		final Model model )
-		{
-		return e -> {
-		int count = clickCounter.getValue(); 
-		System.out.println("Action Performed: Test Started");
-		
-		};
-	}	
+	
 }

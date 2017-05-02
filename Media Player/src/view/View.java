@@ -1,51 +1,76 @@
 package view;
 
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import controller.Controller;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.BorderPane;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import model.Listener;
 import model.Model;
 
 
 
 
-public class View implements Listener
+public class View implements Listener, Initializable
 
 {
 	public int currentIndex;
 	private final Model model;
 	
-	public View(final Model model, final Controller controller)
+	@FXML private MediaView mView;
+	@FXML private ListView playlistView;
+	
+	
+	MediaPlayer player;
+	//Media media;
+	
+	public View(final Model model)
 	{
 		this.model = model;
 	}
 	
-	/*
+/*
+	private void init()
 	{
-		try {
-            // Load root layout from fxml file.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(View.class.getResource(".fxml"));
-            borderPane = (BorderPane) loader.load();
-
-            // Show the scene containing the root layout.
-            Scene scene = new Scene(borderPane);
-            primaryStage.setScene(scene);
-            primaryStage.show();	
+		
+		
+		//media = new Media(new File(path).toURI().toString());
+		//player = new MediaPlayer(model.);
+		mView.setMediaPlayer(player);
+		player.setAutoPlay(true);
+		playlistView.setVisible(false);
+		
 	}*/
+	
 	
 	public void updateMedia()
 	{
+		// Update the View's index
+		currentIndex = model.index;
 		
+		player = new MediaPlayer(model.mediaCache[currentIndex]);
+		mView.setMediaPlayer(player);
 	}
 	
 	@Override
 	public void updated() {
 		if (currentIndex != model.index)
-		updateMedia();
-		
+			updateMedia();
+		// Updates in the case that this is the first time anything was loaded
 		if (model.mediaCache[0] == null )
 			updateMedia();
 	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }
