@@ -17,7 +17,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             BorderPane page = (BorderPane) FXMLLoader.load(Main.class.getResource("Scene.fxml"));
-            //Controller cont = new Controller(primaryStage);
             Scene scene = new Scene(page);
             primaryStage.setScene(scene);
             primaryStage.setTitle("My Media");

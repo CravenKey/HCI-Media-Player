@@ -1,16 +1,9 @@
 package Model;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-
 import javafx.scene.media.Media;
-import javafx.scene.media.MediaView;
 
 public class Model{
 
